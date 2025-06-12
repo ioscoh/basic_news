@@ -1,23 +1,23 @@
 package com.example.basic_news.post.entity;
 
-import com.example.basic_news.member.entity.MemberEntity;
+import com.example.basic_news.member.entity.Member;
 import jakarta.persistence.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
-import java.lang.reflect.Member;
 import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "post")
-public class PostEntity {
+public class Post {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "member_id", nullable = false)
-    private MemberEntity member;
+    private Member member;
 
     @Column(name = "member_name", nullable = false, length = 20)
     private String memberName;

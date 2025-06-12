@@ -1,28 +1,29 @@
-package com.example.basic_news.like.post_like.entity;
+package com.example.basic_news.like.entity;
 
-import com.example.basic_news.member.entity.MemberEntity;
-import com.example.basic_news.post.entity.PostEntity;
+import com.example.basic_news.comment.entity.Comment;
+import com.example.basic_news.member.entity.Member;
 import jakarta.persistence.*;
 import org.hibernate.annotations.CreationTimestamp;
 
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "post_like")
-public class PostLikeEntity {
+@Table(name = "comment_like")
+public class CommemtLike {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "member_id", nullable = false)
-    private MemberEntity member;
+    private Member member;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "post_id", nullable = false)
-    private PostEntity post;
+    @JoinColumn(name = "comment_id", nullable = false)
+    private Comment comment;
 
     @Column(name = "liked_at", nullable = false, updatable = false)
     @CreationTimestamp
     private LocalDateTime likedAt;
 }
+

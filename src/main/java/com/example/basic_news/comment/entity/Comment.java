@@ -1,16 +1,15 @@
 package com.example.basic_news.comment.entity;
 
-import com.example.basic_news.post.entity.PostEntity;
+import com.example.basic_news.post.entity.Post;
 import jakarta.persistence.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
 
 @Entity
 @Table(name = "comment")
-public class CommentEntity {
+public class Comment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -20,7 +19,7 @@ public class CommentEntity {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "post_id", nullable = false)
-    private PostEntity post;
+    private Post post;
 
     @Column(nullable = false, length = 225)
     private String comment;

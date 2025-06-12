@@ -40,14 +40,39 @@ dependencies {
 // maridb 용 jdbc driver
 // implementation 'org.mariadb.jdbc:mariadb-java-client' //  MariaDB 전용 드라이버
 
-// 롬복, mysql드라이버, 스프링웹
+//// 롬복, mysql드라이버, 스프링웹
+//    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+//    implementation 'org.springframework.boot:spring-boot-starter-web'
+//    compileOnly 'org.projectlombok:lombok'
+//    runtimeOnly 'com.mysql:mysql-connector-j'
+//    annotationProcessor 'org.projectlombok:lombok'
+//    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+//    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+//
+//// jwt
+//    implementation 'io.jsonwebtoken:jjwt-api:0.12.6'
+//    runtimeOnly   'io.jsonwebtoken:jjwt-impl:0.12.6'
+//    runtimeOnly   'io.jsonwebtoken:jjwt-jackson:0.12.6'
+//
+//
+//}
+//
+//tasks.named('test') {
+//    useJUnitPlatform()
+    // Spring Data JPA, Web, Lombok, MySQL 드라이버
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
     implementation 'org.springframework.boot:spring-boot-starter-web'
-    compileOnly 'org.projectlombok:lombok'
-    runtimeOnly 'com.mysql:mysql-connector-j'
+    compileOnly   'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
-    testImplementation 'org.springframework.boot:spring-boot-starter-test'
-    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+    runtimeOnly   'com.mysql:mysql-connector-j'
+
+    testImplementation     'org.springframework.boot:spring-boot-starter-test'
+    testRuntimeOnly       'org.junit.platform:junit-platform-launcher'
+
+    // JWT (io.jsonwebtoken:jjwt-api 0.12.6 이상이면 parserBuilder() 가 있습니다)
+    implementation 'io.jsonwebtoken:jjwt-api:0.12.6'
+    runtimeOnly     'io.jsonwebtoken:jjwt-impl:0.12.6'
+    runtimeOnly     'io.jsonwebtoken:jjwt-jackson:0.12.6'
 }
 
 tasks.named('test') {

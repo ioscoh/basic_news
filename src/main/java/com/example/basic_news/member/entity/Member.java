@@ -5,11 +5,10 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
 
 @Entity
 @Table(name = "member")
-public class MemberEntity {
+public class Member {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -40,6 +39,10 @@ public class MemberEntity {
     @UpdateTimestamp
     private LocalDateTime updatedAt;
 
+    @PrePersist
+    public void prePersist() {
+        this.createdAt = LocalDateTime.now();
+    }
 //    // 양방향 관계 설정
 //    @OneToMany(mappedBy = "member", cascade = CascadeType.ALL)
 //    private List<Post> posts = new ArrayList<>();

@@ -1,6 +1,6 @@
 package com.example.basic_news.follow.entity;
 
-import com.example.basic_news.member.entity.MemberEntity;
+import com.example.basic_news.member.entity.Member;
 import jakarta.persistence.*;
 import org.hibernate.annotations.CreationTimestamp;
 
@@ -8,18 +8,18 @@ import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "follow")
-public class FollowEntity {
+public class Follow {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "followed", nullable = false)
-    private MemberEntity followedMember;
+    private Member followedMember;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "following", nullable = false)
-    private MemberEntity followingMember;
+    private Member followingMember;
 
     @Column(name = "followed_at", nullable = false, updatable = false)
     @CreationTimestamp
