@@ -36,6 +36,30 @@ public class Post {
     @UpdateTimestamp
     private LocalDateTime updatedAt;
 
+    public Post(
+            String title, String content
+    ) {
+    }
+
+    public Long getid() {
+        return id;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setTitle(String title) {
+    }
+
+    public Object getCreated_at() {
+        return createdAt;
+    }
+
 //    // 양방향 관계 설정
 //    @OneToMany(mappedBy = "post", cascade = CascadeType.ALL)
 //    private List<Comment> comments = new ArrayList<>();
